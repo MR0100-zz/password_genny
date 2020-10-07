@@ -16,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   /// after 5 seconds it will redirect to the another screen...
   _redirectToanotherScreen() async {
-    await Future.delayed(Duration(seconds: 5), () {
+    await Future.delayed(Duration(seconds: 4), () {
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (_) => OnBoardingScreen()));
     });

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'home_screen.dart';
+
 class OnBoardingScreen extends StatefulWidget {
   @override
   _OnBoardingScreenState createState() => _OnBoardingScreenState();
@@ -292,22 +294,28 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           ),
         ),
         SizedBox(height: screen.height * 0.07),
-        Material(
-          elevation: 10.0,
-          shadowColor: Color(0xff710a77).withOpacity(0.6),
-          borderRadius: BorderRadius.circular(50.0),
-          child: Container(
-            height: 60.0,
-            width: screen.width * 0.7,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50.0),
-                color: Color(0xff710a77)),
-            alignment: Alignment.center,
-            child: Text(
-              'Get Started',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 25.0,
+        GestureDetector(
+          onTap: () {
+            Navigator.pushReplacement(
+                context, MaterialPageRoute(builder: (_) => HomeScreen()));
+          },
+          child: Material(
+            elevation: 10.0,
+            shadowColor: Color(0xff710a77).withOpacity(0.6),
+            borderRadius: BorderRadius.circular(50.0),
+            child: Container(
+              height: 60.0,
+              width: screen.width * 0.7,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(50.0),
+                  color: Color(0xff710a77)),
+              alignment: Alignment.center,
+              child: Text(
+                'Get Started',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25.0,
+                ),
               ),
             ),
           ),
