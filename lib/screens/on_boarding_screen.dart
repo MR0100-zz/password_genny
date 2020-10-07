@@ -33,7 +33,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             height: screen.height,
             child: PageView(
               children: [
-                _page1(screen,pgvc: _pgvc),
+                _page1(screen, pgvc: _pgvc),
                 _page2(screen, pgvc: _pgvc),
                 _page3(screen),
               ],
@@ -105,7 +105,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             children: [
               FlatButton(
                 onPressed: () {
-                  pgvc.animateToPage(2, duration: Duration(milliseconds: 200), curve: Curves.easeIn);
+                  pgvc.animateToPage(2,
+                      duration: Duration(milliseconds: 200),
+                      curve: Curves.easeIn);
                 },
                 child: Text(
                   'SKIP',
@@ -114,18 +116,29 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       fontSize: 18.0),
                 ),
               ),
-              RaisedButton(
-                  onPressed: () {
-                    pgvc.nextPage(duration: Duration(milliseconds: 400), curve: Curves.easeIn);
-                  },
-                  color: Color(0xff710a77),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50.0),
-                  ),
-                  child: Text(
-                    'NEXT',
-                    style: TextStyle(color: Color(0xffffffff), fontSize: 18.0),
-                  ))
+              GestureDetector(
+                onTap: () {
+                  pgvc.nextPage(
+                      duration: Duration(milliseconds: 400),
+                      curve: Curves.easeIn);
+                },
+                child: Material(
+                  elevation: 10.0,
+                  shadowColor: Color(0xff710a77).withOpacity(0.6),
+                  borderRadius: BorderRadius.circular(50.0),
+                  child: Container(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 25.0, vertical: 10.0),
+                      decoration: BoxDecoration(
+                          color: Color(0xff710a77),
+                          borderRadius: BorderRadius.circular(50.0)),
+                      child: Text(
+                        'NEXT',
+                        style:
+                            TextStyle(color: Color(0xffffffff), fontSize: 18.0),
+                      )),
+                ),
+              )
             ],
           ),
         ),
@@ -133,7 +146,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
     );
   }
 
-    Widget _page2(Size screen, {PageController pgvc}) {
+  Widget _page2(Size screen, {PageController pgvc}) {
     return Column(
       children: [
         Container(
@@ -189,7 +202,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             children: [
               FlatButton(
                 onPressed: () {
-                  pgvc.animateToPage(2, duration: Duration(milliseconds: 200), curve: Curves.easeIn);
+                  pgvc.animateToPage(2,
+                      duration: Duration(milliseconds: 200),
+                      curve: Curves.easeIn);
                 },
                 child: Text(
                   'SKIP',
@@ -198,18 +213,29 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                       fontSize: 18.0),
                 ),
               ),
-              RaisedButton(
-                  onPressed: () {
-                    pgvc.nextPage(duration: Duration(milliseconds: 400), curve: Curves.easeIn);
-                  },
-                  color: Color(0xff710a77),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(50.0),
-                  ),
-                  child: Text(
-                    'NEXT',
-                    style: TextStyle(color: Color(0xffffffff), fontSize: 18.0),
-                  ))
+              GestureDetector(
+                onTap: () {
+                  pgvc.nextPage(
+                      duration: Duration(milliseconds: 400),
+                      curve: Curves.easeIn);
+                },
+                child: Material(
+                  elevation: 10.0,
+                  shadowColor: Color(0xff710a77).withOpacity(0.6),
+                  borderRadius: BorderRadius.circular(50.0),
+                  child: Container(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: 25.0, vertical: 10.0),
+                      decoration: BoxDecoration(
+                          color: Color(0xff710a77),
+                          borderRadius: BorderRadius.circular(50.0)),
+                      child: Text(
+                        'NEXT',
+                        style:
+                            TextStyle(color: Color(0xffffffff), fontSize: 18.0),
+                      )),
+                ),
+              )
             ],
           ),
         ),
@@ -267,8 +293,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
         ),
         SizedBox(height: screen.height * 0.07),
         Material(
-          elevation: 4.0,
-          shadowColor: Color(0xff710a77).withOpacity(0.1),
+          elevation: 10.0,
+          shadowColor: Color(0xff710a77).withOpacity(0.6),
           borderRadius: BorderRadius.circular(50.0),
           child: Container(
             height: 60.0,
