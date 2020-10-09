@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 
-
 class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   final BuildContext context;
-  const CustomAppBar({@required this.context});
+  final bool showText;
+  final Widget leadingIcon;
+  const CustomAppBar({
+    @required this.context,
+    this.showText = true,
+    this.leadingIcon,
+  });
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.transparent,
-      height: 160.0,
+      height: showText ? 160.0 : 90,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -18,11 +23,12 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
             children: [
               Padding(
                 padding: EdgeInsets.only(left: 20.0, top: 40),
-                child: Icon(
-                  Icons.menu,
-                  size: 30.0,
-                  color: Color(0xff710a77),
-                ),
+                child: leadingIcon ??
+                    Icon(
+                      Icons.menu,
+                      size: 30.0,
+                      color: Color(0xff710a77),
+                    ),
               ),
               Padding(
                   padding: EdgeInsets.only(right: 20.0, top: 40),
@@ -42,40 +48,42 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
                   )),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 17.0, left: 25.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Keep your',
-                  style: TextStyle(
-                      color: Color(0xff000000),
-                      fontSize: 27.0,
-                      fontWeight: FontWeight.w500),
-                ),
-                Row(
-                  children: [
-                    Text(
-                      'Password',
-                      style: TextStyle(
-                          color: Color(0xff000000),
-                          fontSize: 27.0,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      ' safe',
-                      style: TextStyle(
-                          color: Color(0xff710a77),
-                          fontSize: 27.0,
-                          fontWeight: FontWeight.w900),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          )
+          showText
+              ? Padding(
+                  padding: const EdgeInsets.only(top: 17.0, left: 25.0),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Keep your',
+                        style: TextStyle(
+                            color: Color(0xff000000),
+                            fontSize: 27.0,
+                            fontWeight: FontWeight.w500),
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            'Password',
+                            style: TextStyle(
+                                color: Color(0xff000000),
+                                fontSize: 27.0,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          Text(
+                            ' safe',
+                            style: TextStyle(
+                                color: Color(0xff710a77),
+                                fontSize: 27.0,
+                                fontWeight: FontWeight.w900),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                )
+              : SizedBox()
         ],
       ),
     );
